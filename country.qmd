@@ -1,0 +1,34 @@
+---
+title: "Country Analysis: Life Expectancy, GDP per Capita, and Population Over Time in India"
+---
+
+## Analysis
+
+In this example, we’ll analyze data for India.
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(gapminder)
+library(dplyr)
+
+# Filter the dataset for a specific country (India)
+country_data <- gapminder %>% filter(country == "India")
+
+# Create a plot for life expectancy, GDP per capita, and population over time
+ggplot(country_data, aes(x = year)) +
+  geom_line(aes(y = lifeExp, color = "Life Expectancy"), size = 1.2) +
+  geom_line(aes(y = gdpPercap / 1000, color = "GDP per Capita (x1000)"), size = 1.2) +
+  geom_line(aes(y = pop / 1e7, color = "Population (x10M)"), size = 1.2) +
+  scale_y_continuous(
+    name = "Life Expectancy",
+    sec.axis = sec_axis(~ . * 1000, name = "GDP per Capita (x1000)")
+  ) +
+  labs(
+    title = "Life Expectancy, GDP per Capita, and Population Over Time in India",
+    x = "Year",
+    color = "Metric"
+  ) +
+  theme_minimal()
+
+  ```

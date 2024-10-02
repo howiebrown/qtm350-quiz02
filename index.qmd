@@ -1,0 +1,10 @@
+---
+title: "Gapminder Dataset Overview"
+---
+
+The gapminder dataset provides information on various different worldwide indices overtime including GPD per capita, life expectancy, and population.
+
+## Analysis Pages
+- [Life Expectancy and GDP per Capita](life-gdp.qmd)
+- [Life Expectancy and Population](life-population.qmd)
+- [Country Analysis](country.qmd)

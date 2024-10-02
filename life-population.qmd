@@ -1,0 +1,28 @@
+---
+title: "Life Expectancy and Population"
+---
+
+## Analysis
+
+We'll create a scatter plot to visualize the relationship between population size and life expectancy.
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(gapminder)
+
+# Filter the dataset to the most recent year available
+latest_data <- gapminder[gapminder$year == max(gapminder$year),]
+
+# Create scatter plot
+ggplot(gapminder, aes(x = pop, y = lifeExp)) +
+  geom_point(size = 3, alpha = 0.7) +
+  scale_x_log10() +  # Log scale for population
+  labs(
+    title = "Life Expectancy vs Population",
+    x = "Population (Log Scale)",
+    y = "Life Expectancy (years)"
+  ) +
+  theme_minimal()
+
+  ```
